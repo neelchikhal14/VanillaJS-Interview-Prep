@@ -1,2 +1,2 @@
 # VanillaJS-Interview-Prep
-Important Vanilla JS COncepts
+Important Vanilla JS Concepts
