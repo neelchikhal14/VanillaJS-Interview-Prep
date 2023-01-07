@@ -28,11 +28,10 @@ const _promiseAll = function (inputPromises) {
     inputPromises.forEach((thePromise, idx) => {
       thePromise
         .then((val) => {
-          console.log(idx, val);
           results[idx] = val;
           promisesCompleted += 1;
 
-          if (promisesCompleted === tasks) resolve(results);
+          if (promisesCompleted === tasks) return resolve(results);
         })
         .catch((err) => reject(err));
     });
@@ -46,10 +45,16 @@ function task(time) {
     }, time);
   });
 }
-const taskList = [task(1000), task(5000), task(3000)];
 
-_promiseAll(taskList)
+let task1 = Promise.resolve(111);
+let task2 = Promise.resolve(222);
+let task3 = Promise.resolve(333);
+// const taskList = [task(1000), task(5000), task(3000)];
+const taskList2 = [task1, task2, task3];
+
+_promiseAll(taskList2)
   .then((results) => {
+    console.log("Heloo");
     console.log("got results", results);
   })
   .catch(console.error);
