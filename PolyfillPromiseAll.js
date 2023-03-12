@@ -52,7 +52,7 @@ let task3 = Promise.resolve(333);
 // const taskList = [task(1000), task(5000), task(3000)];
 const taskList2 = [task1, task2, task3];
 
-_promiseAll(taskList2)
+_promiseAll([])
   .then((results) => {
     console.log("Heloo");
     console.log("got results", results);
